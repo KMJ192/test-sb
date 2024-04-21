@@ -31,9 +31,21 @@ function Lab() {
     input.value = koDateFormatChecker(input.value, isBackspace.current);
   };
 
+  const onPaste = () => {
+    const input = inputRef.current;
+    if (!input) return;
+    input.value = '';
+    return false;
+  };
+
   return (
     <div>
-      <input ref={inputRef} onChange={onChange} onKeyDown={onKeyDown}></input>
+      <input
+        ref={inputRef}
+        onChange={onChange}
+        onKeyDown={onKeyDown}
+        onPaste={onPaste}
+      ></input>
       <div>test</div>
     </div>
   );
